@@ -2,8 +2,9 @@
 coredump实时压缩工具，提供压缩core文件、core文件与APP一一对应匹配，压缩文件解压等功能
 
 ## Usage
-(```)	
+```	
 	gzCoredump version: 1.0.0
+	
 	Usage:
 	gzCoredump -c [-p path] [-a argument]
 	gzCoredump -d -f inputfile -o outputfile
@@ -18,7 +19,7 @@ coredump实时压缩工具，提供压缩core文件、core文件与APP一一对�
 
 		-f    with -d, compressed coredump file
 		-o    with -d, output file
-(```)
+```
 	
 	使用 mycompress.GzipBestCompress 接口压缩的文件可以被7zip解压。
 	使用 mycompress.ZlibBestCompress 接口压缩的文件无法被7-zip解压，可当加密使用。

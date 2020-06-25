@@ -24,7 +24,7 @@ coredump实时压缩工具，提供压缩core文件、core文件与APP一一对�
 	使用 mycompress.ZlibBestCompress 接口压缩的文件无法被7-zip解压，可当加密使用。
 	对应的解压接口亦有实现。
 
-## core文件压缩ref:
+## core文件压缩[ref](https://linux.die.net/man/5/core):
 
 Piping core dumps to a program
 

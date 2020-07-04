@@ -22,15 +22,15 @@ coredump实时压缩工具，提供压缩core文件、core文件与APP一一对�
 ```
 
 ## 加解密接口	
-	使用 mycompress.GzipBestCompress 接口压缩的文件可以被7zip解压。
-	使用 mycompress.ZlibBestCompress 接口压缩的文件无法被7-zip解压，可当加密使用。
-	对应的解压接口亦有实现。<br>
-    [code](https://github.com/lbbxsxlz/gzCoredump/blob/master/src/mycompress/mycompress.go)
+使用 mycompress.GzipBestCompress 接口压缩的文件可以被7zip解压。
+使用 mycompress.ZlibBestCompress 接口压缩的文件无法被7-zip解压，可当加密使用。
+对应的解压接口亦有实现。
+详见[code](https://github.com/lbbxsxlz/gzCoredump/blob/master/src/mycompress/mycompress.go)
 
 ## ELF文件接口	
-	core文件与APP的一一对应关系通过解析ELF中section来实现。
-	编译ELF可执行文件时使用objcopy创建特殊的section，在生成core文件时使用ELF文件接口读取APP中的特殊的section，并保存成文件。<br>
-    [code](https://github.com/lbbxsxlz/gzCoredump/blob/master/src/elfreader/elfreader.go)
+core文件与APP的一一对应关系通过解析ELF中section来实现。
+编译ELF可执行文件时使用objcopy创建特殊的section，在生成core文件时使用ELF文件接口读取APP中的特殊的section，并保存成文件。
+详见[code](https://github.com/lbbxsxlz/gzCoredump/blob/master/src/elfreader/elfreader.go)
 
 ## core文件压缩[ref](https://linux.die.net/man/5/core):
 

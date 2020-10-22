@@ -1,6 +1,38 @@
 # gzCoredump
 coredump实时压缩工具，提供压缩core文件、core文件与APP一一对应匹配，压缩文件解压等功能
 
+## build
+本工程的目录结构按照一般工程的工程目录，存在src，bin，pkg目录
+
+把程序当前目录加入到GOPATH中
+
+```
+cd bin;go build gzCoredump
+```
+
+即会在bin目录下生成可执行文件
+
+本工程同样支持go test命令。例如
+
+```
+go test elfreader
+```
+
+"
+ok      elfreader       0.001s
+"
+
+本工程同样支持go install命令，运行之后即会在pkg目录中生成对应的库文件，例如
+```
+go build filelist
+go install filelist
+ls -l pkg/linux_amd64/
+```
+
+"
+-rw-rw-r-- 1 lbbxsxlz lbbxsxlz 5330 10月 22 15:44 filelist.a
+"
+
 ## Usage
 ```	
 	gzCoredump version: 1.0.0

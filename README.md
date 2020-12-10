@@ -1,5 +1,7 @@
 # gzCoredump
-coredump实时压缩工具，提供压缩core文件、core文件与APP一一对应匹配，压缩文件解压等功能
+coredump实时压缩工具，Linux内核产生的异常程序的coredump文件将以压缩包的形式保存。
+为了确保coredump文件与异常程序的对应关系，提供了一种匹配的方法，程序生成后需要对ELF中追加.uuid的section。
+另外该工具同样提供了压缩文件、解压文件等功能，支持*.gz
 
 ## build
 本工程的目录结构按照一般工程的工程目录，存在src，bin，pkg目录
@@ -61,8 +63,8 @@ ls -l pkg/linux_amd64/
 &nbsp;&nbsp;&nbsp;&nbsp;[code](https://github.com/lbbxsxlz/gzCoredump/blob/master/src/mycompress/mycompress.go)
 
 ## ELF文件接口	
-	core文件与APP的一一对应关系通过解析ELF中section来实现。
-	编译ELF可执行文件时使用objcopy创建特殊的section，在生成core文件时使用ELF文件接口读取APP中的特殊的section，并保存成文件。
+	coreump文件与应用程序的一一对应关系通过解析ELF中section来实现。
+	编译ELF可执行文件时使用objcopy创建特殊的section，在生成core文件时使用ELF文件接口读取应用程序中的特殊的section，并保存成文件。
 &nbsp;&nbsp;&nbsp;&nbsp;[code](https://github.com/lbbxsxlz/gzCoredump/blob/master/src/elfreader/elfreader.go)
 
 ## core文件压缩[ref](https://linux.die.net/man/5/core):

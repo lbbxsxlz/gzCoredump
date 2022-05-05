@@ -67,23 +67,17 @@ ls -l pkg/linux_amd64/
 	编译ELF可执行文件时使用objcopy创建特殊的section，在生成core文件时使用ELF文件接口读取应用程序中的特殊的section，并保存成文件。
 &nbsp;&nbsp;&nbsp;&nbsp;[code](https://github.com/lbbxsxlz/gzCoredump/blob/master/src/elfreader/elfreader.go)
 
-## core文件压缩[ref](https://linux.die.net/man/5/core):
+## core文件压缩通过管道传递给另一个程序[ref](https://linux.die.net/man/5/core):
 
-Piping core dumps to a program
+**Piping core dumps to a program**
 
 Since kernel 2.6.19, Linux supports an alternate syntax for the /proc/sys/kernel/core_pattern file. If the first character of this file is a pipe symbol (|), then the remainder of the line is interpreted as a program to be executed. Instead of being written to a disk file, the core dump is given as standard input to the program. Note the following points:
-*
-The program must be specified using an absolute pathname (or a pathname relative to the root directory, /), and must immediately follow the '|' character.
 
-*
+* The program must be specified using an absolute pathname (or a pathname relative to the root directory, /), and must immediately follow the '|' character.
 
-The process created to run the program runs as user and group root.
+* The process created to run the program runs as user and group root.
 
-*
+* Command-line arguments can be supplied to the program (since kernel 2.6.24), delimited by white space (up to a total line length of 128 bytes).
 
-Command-line arguments can be supplied to the program (since kernel 2.6.24), delimited by white space (up to a total line length of 128 bytes).
-
-*
-
-The command-line arguments can include any of the % specifiers listed above. For example, to pass the PID of the process that is being dumped, specify %p in an argument.
+* The command-line arguments can include any of the % specifiers listed above. For example, to pass the PID of the process that is being dumped, specify %p in an argument.
 
